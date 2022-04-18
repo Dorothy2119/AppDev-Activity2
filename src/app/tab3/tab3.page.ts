@@ -1,5 +1,6 @@
 import { Component} from '@angular/core';
 import { AlertController, ToastController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 
 
@@ -23,8 +24,13 @@ export class Tab3Page {
     {id: 10, name: 'Laila Bustillo', email: 'lailabustillo19@gmail.com'  ,number: '09275627482'},
   ]
 
-  constructor(public alertController: AlertController, public toastController: ToastController ) {
+  constructor(public alertController: AlertController, public toastController: ToastController,public router: Router ) {
   }
+  redirectTo() {
+    this.router.navigateByUrl('/mailpage');
+  }
+
+  
   async  confirmation(index: number) {
     const alert = await this.alertController.create({
       header: 'Are You Sure You Want To Delete?',
@@ -127,7 +133,7 @@ export class Tab3Page {
       position: 'top'
     });
 
-   
+  
 
     (await toast).present();
   }
